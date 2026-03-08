@@ -60,8 +60,17 @@ export const translations = {
                 { q: '¿A qué distancia está la Plaza de Armas?', a: 'Estamos ubicados en el corazón histórico, a menos de 2 cuadras de la Plaza de Armas de Chachapoyas.' },
             ],
         },
+        reviews: {
+            eyebrow: 'Experiencias',
+            title: 'Lo que dicen nuestros huéspedes',
+            items: [
+                { name: 'Ricardo G.', date: 'Febrero 2024', text: 'Increíble ubicación y atención. Se siente el calor de hogar desde que entras. La vista desde el balcón es inigualable.', rating: 5 },
+                { name: 'Elena M.', date: 'Enero 2024', text: 'La limpieza es impecable y el estilo colonial del hospedaje es precioso. Muy cerca de todo en Chachapoyas.', rating: 5 },
+                { name: 'James Wilson', date: 'Marzo 2024', text: 'Perfect base for exploring Kuelap. The staff was incredibly helpful with tour recommendations. Will come back!', rating: 5 },
+            ]
+        },
         footer: {
-            brand: 'Hospedaje boutique con encanto colonial en el corazón de Chachapoyas, Perú.',
+            brand: 'Casa Hospedaje con encanto colonial en el corazón de Chachapoyas, Amazonas.',
             nav_title: 'Navegación',
             contact_title: 'Contacto',
             rights: 'Todos los derechos reservados.',
@@ -129,8 +138,17 @@ export const translations = {
                 { q: 'How far is the Plaza de Armas?', a: 'We are located in the historic heart, less than 2 blocks from the Plaza de Armas of Chachapoyas.' },
             ],
         },
+        reviews: {
+            eyebrow: 'Experiences',
+            title: 'Guest Reviews',
+            items: [
+                { name: 'Ricardo G.', date: 'February 2024', text: 'Amazing location and service. You feel the warmth of home from the moment you walk in. The balcony view is unmatched.', rating: 5 },
+                { name: 'Elena M.', date: 'January 2024', text: 'The cleanliness is impeccable and the colonial style is beautiful. Very close to everything in Chachapoyas.', rating: 5 },
+                { name: 'James Wilson', date: 'March 2024', text: 'Perfect base for exploring Kuelap. The staff was incredibly helpful with tour recommendations. Will come back!', rating: 5 },
+            ]
+        },
         footer: {
-            brand: 'Boutique guesthouse with colonial charm in the heart of Chachapoyas, Peru.',
+            brand: 'Casa Hospedaje con colonial charm in the heart of Chachapoyas, Amazonas.',
             nav_title: 'Navigation',
             contact_title: 'Contact',
             rights: 'All rights reserved.',
