@@ -48,7 +48,12 @@ export default function InfoSections() {
                             {t.location.subtitle}
                         </p>
                         <div className="info-list">
-                            <div className="info-item"><MapPin size={18} color="var(--color-gold)" style={{ flexShrink: 0 }} /> Jr. Hermosura 622, Chachapoyas, Perú</div>
+                            <div className="info-item">
+                                <MapPin size={18} color="var(--color-gold)" style={{ flexShrink: 0 }} />
+                                <a href="https://maps.app.goo.gl/ysym4k53d9a1h1aA8" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                    Jr. Hermosura 622, Chachapoyas, Perú
+                                </a>
+                            </div>
                             <div className="info-item"><Phone size={18} color="var(--color-gold)" style={{ flexShrink: 0 }} /> +51 941 944 562</div>
                             <div className="info-item"><Mail size={18} color="var(--color-gold)" style={{ flexShrink: 0 }} /> reservas@casahospedajeburgos.com</div>
                         </div>

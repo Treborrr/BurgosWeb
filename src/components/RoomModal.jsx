@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, Check, Users, ZoomIn } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 
@@ -32,6 +32,16 @@ export default function RoomModal({ room, inCart, onClose, onAddToCart }) {
     const prev = () => setImgIndex(i => (i - 1 + images.length) % images.length);
     const next = () => setImgIndex(i => (i + 1) % images.length);
 
+    // Swipe táctil para la galería
+    const touchStartX = useRef(null);
+    const onTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+    const onTouchEnd   = (e) => {
+        if (touchStartX.current === null) return;
+        const diff = touchStartX.current - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+        touchStartX.current = null;
+    };
+
     return (
         <div className="room-modal-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
             <div className="room-modal">
@@ -42,7 +52,11 @@ export default function RoomModal({ room, inCart, onClose, onAddToCart }) {
                 </button>
 
                 {/* Galería */}
-                <div className="room-modal-gallery">
+                <div
+                    className="room-modal-gallery"
+                    onTouchStart={onTouchStart}
+                    onTouchEnd={onTouchEnd}
+                >
                     {images.length > 0 ? (
                         <>
                             <img

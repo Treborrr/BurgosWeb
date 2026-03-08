@@ -46,7 +46,12 @@ export default function Footer() {
                     <div className="footer-contact">
                         <h4>{t.footer.contact_title}</h4>
                         <div className="contact-item"><Phone size={15} /> +51 941 944 562</div>
-                        <div className="contact-item"><MapPin size={15} /> Jr. Hermosura 622, Chachapoyas</div>
+                        <div className="contact-item">
+                            <MapPin size={15} />
+                            <a href="https://maps.app.goo.gl/ysym4k53d9a1h1aA8" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                Jr. Hermosura 622, Chachapoyas
+                            </a>
+                        </div>
                     </div>
                 </div>
 
