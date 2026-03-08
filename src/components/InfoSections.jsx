@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, MapPin, Phone, Mail } from 'lucide-react';
+import { ChevronDown, MapPin, Phone } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 import gocta from '../assets/images/city/CatarataGocta.png';
 import kuelap from '../assets/images/city/Kuelap.png';
@@ -55,7 +55,7 @@ export default function InfoSections() {
                                 </a>
                             </div>
                             <div className="info-item"><Phone size={18} color="var(--color-gold)" style={{ flexShrink: 0 }} /> +51 941 944 562</div>
-                            <div className="info-item"><Mail size={18} color="var(--color-gold)" style={{ flexShrink: 0 }} /> reservas@casahospedajeburgos.com</div>
+
                         </div>
                         <div className="map-placeholder">
                             <iframe
