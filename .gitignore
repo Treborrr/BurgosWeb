@@ -20,5 +20,47 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
+*.sqllite
 *.sln
 *.sw?
+
+# Vite / Build outputs
+dist
+dist-ssr
+.env.local
+.env.*.local
+.env
+.vite/
+
+# Dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Other
+coverage
+.nyc_output
+
+# AI & Claude and development-related files
+.claude/
+CLAUDE.md
+.agents/
+.agent/
+_agents/
+_agent/
+visual_review_*.webp
+*.tmp
+/tmp/
+
+# Build artifacts
+build/
+out/

@@ -1,14 +1,17 @@
 import { ChevronDown } from 'lucide-react';
 import bgImage from '../assets/images/city/Karajia.png';
+import { useLang } from '../context/LanguageContext';
 
 export default function Hero() {
+    const { t } = useLang();
+
     return (
         <section id="inicio" className="hero" style={{ backgroundImage: `url(${bgImage})` }}>
             <div className="hero-overlay" />
 
             <div className="hero-content">
                 <span className="hero-eyebrow animate-fade-in">
-                    Chachapoyas, Amazonas · Perú
+                    {t.hero.eyebrow}
                 </span>
 
                 <h1 className="animate-fade-in delay-1">
@@ -18,16 +21,12 @@ export default function Hero() {
                 <div className="hero-divider animate-fade-in delay-2" />
 
                 <p className="animate-fade-in delay-2">
-                    Elegancia colonial y confort moderno en el corazón histórico de Chachapoyas.
+                    {t.hero.subtitle}
                 </p>
 
                 <div className="hero-btns animate-fade-in delay-3">
-                    <a href="#habitaciones" className="btn btn-primary">
-                        Ver Habitaciones
-                    </a>
-                    <a href="#ubicacion" className="btn btn-outline">
-                        Nuestra Ubicación
-                    </a>
+                    <a href="#habitaciones" className="btn btn-primary">{t.hero.cta_rooms}</a>
+                    <a href="#ubicacion" className="btn btn-outline">{t.hero.cta_location}</a>
                 </div>
             </div>
 
