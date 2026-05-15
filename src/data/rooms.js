@@ -1,21 +1,21 @@
 // Habitación 1
-import hab1_main     from '../assets/images/rooms/1/front.jpeg';
-import hab1_bed      from '../assets/images/rooms/1/doubleBed.jpeg';
-import hab1_bath     from '../assets/images/rooms/1/bathroom.jpeg';
-import hab1_alt      from '../assets/images/rooms/1/1.jpg';
+import hab1_main     from '../assets/images/rooms/1/front.webp';
+import hab1_bed      from '../assets/images/rooms/1/doubleBed.webp';
+import hab1_bath     from '../assets/images/rooms/1/bathroom.webp';
+import hab1_alt      from '../assets/images/rooms/1/1.webp';
 
 // Otras Habitaciones
-import hab2_bed      from '../assets/images/rooms/2/bed.jpeg';
-import hab3_bed      from '../assets/images/rooms/3/bed.jpeg';
-import hab5_bed      from '../assets/images/rooms/5/bed.jpeg';
-import hab4_beds     from '../assets/images/rooms/4/beds.jpeg';
-import hab6_bed      from '../assets/images/rooms/6/bed.jpeg';
-import hab6_beds     from '../assets/images/rooms/6/beds.jpeg';
-import hab7_bed      from '../assets/images/rooms/7/bed.jpeg';
-import hab9_bed      from '../assets/images/rooms/9/bed.jpeg';
-import hab10_main    from '../assets/images/rooms/10/mainpic.jpeg';
-import hab10_beds    from '../assets/images/rooms/10/beds.jpeg';
-import hab10_bath    from '../assets/images/rooms/10/bathroom.jpeg';
+import hab2_bed      from '../assets/images/rooms/2/bed.webp';
+import hab3_bed      from '../assets/images/rooms/3/bed.webp';
+import hab5_bed      from '../assets/images/rooms/5/bed.webp';
+import hab4_beds     from '../assets/images/rooms/4/beds.webp';
+import hab6_bed      from '../assets/images/rooms/6/bed.webp';
+import hab6_beds     from '../assets/images/rooms/6/beds.webp';
+import hab7_bed      from '../assets/images/rooms/7/bed.webp';
+import hab9_bed      from '../assets/images/rooms/9/bed.webp';
+import hab10_main    from '../assets/images/rooms/10/mainpic.webp';
+import hab10_beds    from '../assets/images/rooms/10/beds.webp';
+import hab10_bath    from '../assets/images/rooms/10/bathroom.webp';
 
 export const rooms = [
     {

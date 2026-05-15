@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react';
-import bgImage from '../assets/images/city/Karajia.png';
+import bgImage from '../assets/images/city/Karajia.webp';
 import { useLang } from '../context/LanguageContext';
 
 export default function Hero() {

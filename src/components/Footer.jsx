@@ -1,4 +1,4 @@
-import logo from '../assets/images/logo/LogoNoFondo.png';
+import logo from '../assets/images/logo/LogoNoFondo.webp';
 import { Instagram, Facebook, Phone, MapPin } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 

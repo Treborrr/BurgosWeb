@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { ChevronDown, MapPin, Phone } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
-import gocta from '../assets/images/city/CatarataGocta.png';
-import kuelap from '../assets/images/city/Kuelap.png';
-import karajia from '../assets/images/city/Karajia.png';
-import catedral from '../assets/images/city/CatedralCieloLindo.jpg';
+import gocta from '../assets/images/city/CatarataGocta.webp';
+import kuelap from '../assets/images/city/Kuelap.webp';
+import karajia from '../assets/images/city/Karajia.webp';
+import catedral from '../assets/images/city/CatedralCieloLindo.webp';
 
 const imgs = [kuelap, gocta, karajia, catedral];
 

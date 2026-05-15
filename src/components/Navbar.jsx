@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import logo from '../assets/images/logo/LogoNoFondo.png';
+import logo from '../assets/images/logo/LogoNoFondo.webp';
 import { useLang } from '../context/LanguageContext';
 import { Menu, X } from 'lucide-react';
 
