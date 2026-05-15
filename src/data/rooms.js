@@ -8,9 +8,14 @@ import hab1_alt      from '../assets/images/rooms/1/1.jpg';
 import hab2_bed      from '../assets/images/rooms/2/bed.jpeg';
 import hab3_bed      from '../assets/images/rooms/3/bed.jpeg';
 import hab5_bed      from '../assets/images/rooms/5/bed.jpeg';
+import hab4_beds     from '../assets/images/rooms/4/beds.jpeg';
 import hab6_bed      from '../assets/images/rooms/6/bed.jpeg';
 import hab6_beds     from '../assets/images/rooms/6/beds.jpeg';
 import hab7_bed      from '../assets/images/rooms/7/bed.jpeg';
+import hab9_bed      from '../assets/images/rooms/9/bed.jpeg';
+import hab10_main    from '../assets/images/rooms/10/mainpic.jpeg';
+import hab10_beds    from '../assets/images/rooms/10/beds.jpeg';
+import hab10_bath    from '../assets/images/rooms/10/bathroom.jpeg';
 
 export const rooms = [
     {
@@ -48,11 +53,11 @@ export const rooms = [
         id: 4,
         name:          'Triple Familiar',
         nameEn:        'Family Triple Room',
-        description:   'Espacio amplio para toda la familia con 3 camas.',
-        descriptionEn: 'Spacious room for the whole family with 3 beds.',
+        description:   'Espacio amplio y luminoso para toda la familia con 3 camas y un ambiente relajante.',
+        descriptionEn: 'Spacious and bright room for the whole family with 3 beds and a relaxing atmosphere.',
         price: 220, capacity: 3,
         amenities: ['Wi-Fi', 'TV Familiar', 'Baño Amplio'],
-        image: null, images: [],
+        image: hab4_beds, images: [hab4_beds],
     },
     {
         id: 5,
@@ -84,6 +89,7 @@ export const rooms = [
         amenities: ['Wi-Fi', 'Sofá Cama', 'Balcón'],
         image: hab7_bed, images: [hab7_bed],
     },
+    /*
     {
         id: 8,
         name:          'Habitación Cuádruple',
@@ -94,24 +100,25 @@ export const rooms = [
         amenities: ['Wi-Fi', 'Armarios Grandes', 'Múltiples Enchufes'],
         image: null, images: [],
     },
+    */
     {
         id: 9,
-        name:          'Habitación Twin Confort',
-        nameEn:        'Twin Comfort Room',
-        description:   'Dos camas juntas con ropa de cama de alta gama.',
-        descriptionEn: 'Two beds with premium bed linen.',
+        name:          'Habitación Matrimonial Confort',
+        nameEn:        'Comfort Double Room',
+        description:   'Confortable habitación de techos altos con vigas de madera, amplia cama matrimonial, TV plana y baño privado.',
+        descriptionEn: 'Comfortable room with high ceilings and exposed wooden beams, large double bed, flat-screen TV, and private bathroom.',
         price: 160, capacity: 2,
         amenities: ['Wi-Fi', 'Almohadas Pluma', 'Smart TV'],
-        image: null, images: [],
+        image: hab9_bed, images: [hab9_bed],
     },
     {
         id: 10,
-        name:          'Suite Ático Romántica',
-        nameEn:        'Romantic Attic Suite',
-        description:   'Escapada perfecta bajo el cielo de las nubes.',
-        descriptionEn: 'The perfect getaway under the sky of the clouds.',
-        price: 230, capacity: 2,
-        amenities: ['Wi-Fi', 'Jacuzzi', 'Luces Dimmer'],
-        image: null, images: [],
+        name:          'Habitación Doble Superior',
+        nameEn:        'Superior Double Room',
+        description:   'Habitación amplia con dos camas cómodas, detalles florales y un baño moderno con acabados de primera.',
+        descriptionEn: 'Spacious room with two comfortable beds, floral details, and a modern bathroom with premium finishes.',
+        price: 230, capacity: 3,
+        amenities: ['Wi-Fi', 'Baño Moderno', 'TV Plana'],
+        image: hab10_main, images: [hab10_main, hab10_beds, hab10_bath],
     },
 ];
