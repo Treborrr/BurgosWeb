@@ -4,6 +4,14 @@ import hab1_bed      from '../assets/images/rooms/1/doubleBed.jpeg';
 import hab1_bath     from '../assets/images/rooms/1/bathroom.jpeg';
 import hab1_alt      from '../assets/images/rooms/1/1.jpg';
 
+// Otras Habitaciones
+import hab2_bed      from '../assets/images/rooms/2/bed.jpeg';
+import hab3_bed      from '../assets/images/rooms/3/bed.jpeg';
+import hab5_bed      from '../assets/images/rooms/5/bed.jpeg';
+import hab6_bed      from '../assets/images/rooms/6/bed.jpeg';
+import hab6_beds     from '../assets/images/rooms/6/beds.jpeg';
+import hab7_bed      from '../assets/images/rooms/7/bed.jpeg';
+
 export const rooms = [
     {
         id: 1,
@@ -20,21 +28,21 @@ export const rooms = [
         id: 2,
         name:          'Suite Colonial Burgos',
         nameEn:        'Colonial Burgos Suite',
-        description:   'La más elegante con techos altos y balcón privado.',
-        descriptionEn: 'The most elegant room with high ceilings and a private balcony.',
+        description:   'Elegante habitación con amplia cama de madera, alfombra con patrones y un ambiente cálido y acogedor.',
+        descriptionEn: 'Elegant room with a large wooden bed, patterned rug, and a warm, cozy atmosphere.',
         price: 250, capacity: 2,
         amenities: ['Wi-Fi', 'Frigobar', 'Tina', 'Desayuno Plus'],
-        image: null, images: [],
+        image: hab2_bed, images: [hab2_bed],
     },
     {
         id: 3,
-        name:          'Habitación Doble Clásica',
+        name:          'Habitación Matrimonial Clásica',
         nameEn:        'Classic Double Room',
-        description:   'Dos camas de plaza y media, ideal para amigos o colegas.',
-        descriptionEn: 'Two full beds, ideal for friends or colleagues.',
+        description:   'Acogedora habitación muy bien iluminada con cama matrimonial, amplio ventanal y detalles en tonos cálidos.',
+        descriptionEn: 'Cozy, bright room with a double bed, large window, and warm-toned details.',
         price: 150, capacity: 2,
         amenities: ['Wi-Fi', 'Caja Fuerte', 'Escritorio'],
-        image: null, images: [],
+        image: hab3_bed, images: [hab3_bed],
     },
     {
         id: 4,
@@ -50,31 +58,31 @@ export const rooms = [
         id: 5,
         name:          'Habitación Single Ejecutiva',
         nameEn:        'Executive Single Room',
-        description:   'Perfecta para viajeros de negocios, cómoda y silenciosa.',
-        descriptionEn: 'Perfect for business travelers, comfortable and quiet.',
+        description:   'Perfecta para viajeros, cómoda y silenciosa con un amplio ropero y decoración elegante.',
+        descriptionEn: 'Perfect for travelers, comfortable and quiet with a large wardrobe and elegant decor.',
         price: 120, capacity: 1,
         amenities: ['Wi-Fi Alta Velocidad', 'Escritorio Ergonómico'],
-        image: null, images: [],
+        image: hab5_bed, images: [hab5_bed],
     },
     {
         id: 6,
-        name:          'Habitación Matrimonial Estándar',
-        nameEn:        'Standard King Room',
-        description:   'Acogedora y funcional, con todo lo necesario.',
-        descriptionEn: 'Cozy and functional, with everything you need.',
-        price: 140, capacity: 2,
+        name:          'Habitación Triple Estándar',
+        nameEn:        'Standard Triple Room',
+        description:   'Espaciosa habitación equipada con tres camas individuales, perfecta para grupos o familias.',
+        descriptionEn: 'Spacious room equipped with three single beds, perfect for groups or families.',
+        price: 140, capacity: 3,
         amenities: ['Wi-Fi', 'TV Cable', 'Ducha'],
-        image: null, images: [],
+        image: hab6_bed, images: [hab6_bed, hab6_beds],
     },
     {
         id: 7,
         name:          'Suite Junior con Vista',
         nameEn:        'Junior View Suite',
-        description:   'Vista panorámica de los cerros de Chachapoyas.',
-        descriptionEn: 'Panoramic view of the hills of Chachapoyas.',
+        description:   'Amplia suite con cama matrimonial, pequeña área de estar, TV plana y un ambiente muy acogedor.',
+        descriptionEn: 'Spacious suite with a double bed, small living area, flat-screen TV, and a very cozy atmosphere.',
         price: 200, capacity: 2,
         amenities: ['Wi-Fi', 'Sofá Cama', 'Balcón'],
-        image: null, images: [],
+        image: hab7_bed, images: [hab7_bed],
     },
     {
         id: 8,
