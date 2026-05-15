@@ -54,10 +54,10 @@ export const translations = {
             eyebrow: 'Información',
             title: 'Preguntas Frecuentes',
             items: [
-                { q: '¿Incluye desayuno?', a: 'Sí, todas nuestras tarifas incluyen un desayuno continental premium con productos locales de la región.' },
-                { q: '¿Tienen estacionamiento?', a: 'Contamos con convenio de estacionamiento seguro a solo media cuadra del hospedaje.' },
-                { q: '¿Cómo llego desde el aeropuerto?', a: 'Ofrecemos servicio de traslado previa coordinación, o podemos recomendarte los mejores taxis oficiales.' },
-                { q: '¿A qué distancia está la Plaza de Armas?', a: 'Estamos ubicados en el corazón histórico, a menos de 2 cuadras de la Plaza de Armas de Chachapoyas.' },
+                { q: '¿Incluye desayuno?', a: 'Actualmente no ofrecemos el servicio de desayuno incluido. Sin embargo, en el primer piso de nuestro edificio encontrará una excelente cafetería independiente, además de una gran variedad de opciones a pocos pasos del hospedaje.' },
+                { q: '¿Tienen estacionamiento?', a: 'No contamos con cochera privada, pero es seguro y está permitido estacionar en los exteriores. Al estar en la Plazuela de Burgos, parte del centro histórico, la zona cuenta con resguardo policial las 24 horas.' },
+                { q: '¿Cómo llego desde el aeropuerto?', a: 'El aeropuerto cuenta con servicio de taxis de forma regular. Adicionalmente, previa coordinación y sujeta a disponibilidad, podemos enviarle un taxi de nuestra confianza para su traslado.' },
+                { q: '¿A qué distancia está la Plaza de Armas?', a: 'Nos encontramos a una corta distancia a pie, exactamente a 5 cuadras (menos de 600 metros) de la Plaza de Armas de Chachapoyas.' },
             ],
         },
         reviews: {
@@ -132,10 +132,10 @@ export const translations = {
             eyebrow: 'Information',
             title: 'Frequently Asked Questions',
             items: [
-                { q: 'Is breakfast included?', a: 'Yes, all our rates include a premium continental breakfast with local regional products.' },
-                { q: 'Do you have parking?', a: 'We have a secure parking agreement just half a block from the guesthouse.' },
-                { q: 'How do I get from the airport?', a: 'We offer a transfer service with prior coordination, or we can recommend the best official taxis.' },
-                { q: 'How far is the Plaza de Armas?', a: 'We are located in the historic heart, less than 2 blocks from the Plaza de Armas of Chachapoyas.' },
+                { q: 'Is breakfast included?', a: 'Currently, we do not offer included breakfast. However, you will find an excellent independent coffee shop on the first floor of our building, as well as a wide variety of options just a few steps from the guesthouse.' },
+                { q: 'Do you have parking?', a: 'We do not have private parking, but it is permitted and safe to park right outside. Located in the Plazuela de Burgos, part of the historic center, the area features 24-hour police security.' },
+                { q: 'How do I get from the airport?', a: 'The airport has regular taxi services. Additionally, with prior coordination and subject to availability, we can arrange for a trusted taxi to pick you up.' },
+                { q: 'How far is the Plaza de Armas?', a: 'We are located within a short walking distance, exactly 5 blocks (less than 600 meters) from the Plaza de Armas (Main Square) of Chachapoyas.' },
             ],
         },
         reviews: {
