@@ -32,7 +32,7 @@ export const translations = {
             alert_dates: 'Por favor selecciona las fechas de tu estadía.',
             alert_rooms: 'Por favor añade al menos una habitación.',
             whatsapp: (ci, co, g, r, total) =>
-                `¡Hola! Me gustaría reservar en Casa Hospedaje Burgos.%0A%0A📅 Fechas: ${ci} al ${co}%0A👥 Personas: ${g}%0A🏨 Habitaciones: ${r}%0A💰 Total estimado: S/${total}%0A%0A¿Tienen disponibilidad?`,
+                `¡Hola! Me gustaría reservar en Casa Hospedaje Burgos.\n\n• Fechas: ${ci} al ${co}\n• Huéspedes: ${g}\n• Habitaciones: ${r}\n• Total estimado: S/${total}\n\n¿Tienen disponibilidad?`,
         },
         attractions: {
             eyebrow: 'Turismo',
@@ -110,7 +110,7 @@ export const translations = {
             alert_dates: 'Please select your stay dates.',
             alert_rooms: 'Please add at least one room.',
             whatsapp: (ci, co, g, r, total) =>
-                `Hello! I'd like to book at Casa Hospedaje Burgos.%0A%0A📅 Dates: ${ci} to ${co}%0A👥 Guests: ${g}%0A🏨 Rooms: ${r}%0A💰 Estimated total: S/${total}%0A%0ADo you have availability?`,
+                `Hello! I'd like to book at Casa Hospedaje Burgos.\n\n• Dates: ${ci} to ${co}\n• Guests: ${g}\n• Rooms: ${r}\n• Estimated total: S/${total}\n\nDo you have availability?`,
         },
         attractions: {
             eyebrow: 'Tourism',
