@@ -9,8 +9,10 @@ import hab2_bed      from '../assets/images/rooms/2/bed.webp';
 import hab3_bed      from '../assets/images/rooms/3/bed.webp';
 import hab5_bed      from '../assets/images/rooms/5/bed.webp';
 import hab4_beds     from '../assets/images/rooms/4/beds.webp';
+import hab6_main     from '../assets/images/rooms/6/main.webp';
 import hab6_bed      from '../assets/images/rooms/6/bed.webp';
 import hab6_beds     from '../assets/images/rooms/6/beds.webp';
+import hab6_bath     from '../assets/images/rooms/6/bathroom.webp';
 import hab7_bed      from '../assets/images/rooms/7/bed.webp';
 import hab9_bed      from '../assets/images/rooms/9/bed.webp';
 import hab10_main    from '../assets/images/rooms/10/mainpic.webp';
@@ -36,7 +38,7 @@ export const rooms = [
         description:   'Elegante habitación con amplia cama de madera, alfombra con patrones y un ambiente cálido y acogedor.',
         descriptionEn: 'Elegant room with a large wooden bed, patterned rug, and a warm, cozy atmosphere.',
         price: 80, capacity: 2,
-        amenities: ['Wi-Fi', 'Frigobar', 'Tina'],
+        amenities: ['Wi-Fi', 'Baño Propio', 'Escritorio', 'Silla'],
         image: hab2_bed, images: [hab2_bed],
     },
     {
@@ -46,27 +48,27 @@ export const rooms = [
         description:   'Acogedora habitación muy bien iluminada con cama matrimonial, amplio ventanal y detalles en tonos cálidos.',
         descriptionEn: 'Cozy, bright room with a double bed, large window, and warm-toned details.',
         price: 80, capacity: 2,
-        amenities: ['Wi-Fi', 'Caja Fuerte', 'Escritorio'],
+        amenities: ['Wi-Fi', 'Baño Propio', 'Escritorio', 'Silla'],
         image: hab3_bed, images: [hab3_bed],
     },
     {
         id: 4,
         name:          'Triple Familiar',
         nameEn:        'Family Triple Room',
-        description:   'Espacio amplio y luminoso para toda la familia con 3 camas y un ambiente relajante. (Baño compartido)',
-        descriptionEn: 'Spacious and bright room for the whole family with 3 beds and a relaxing atmosphere. (Shared bathroom)',
+        description:   'Espacio amplio y luminoso para toda la familia con 3 camas y un ambiente relajante. (Baño privado fuera de la habitación)',
+        descriptionEn: 'Spacious and bright room for the whole family with 3 beds and a relaxing atmosphere. (External private bathroom)',
         price: 90, capacity: 3,
-        amenities: ['Wi-Fi', 'TV Familiar', 'Baño Compartido'],
+        amenities: ['Wi-Fi', 'TV Cable', 'Amplio Ropero', 'Baño Privado Externo'],
         image: hab4_beds, images: [hab4_beds],
     },
     {
         id: 5,
-        name:          'Habitación Single Ejecutiva',
-        nameEn:        'Executive Single Room',
-        description:   'Perfecta para viajeros, cómoda y silenciosa con un amplio ropero y decoración elegante.',
-        descriptionEn: 'Perfect for travelers, comfortable and quiet with a large wardrobe and elegant decor.',
-        price: 80, capacity: 1,
-        amenities: ['Wi-Fi Alta Velocidad', 'Escritorio Ergonómico'],
+        name:          'Habitación Matrimonial Minimalista',
+        nameEn:        'Minimalist Double Room',
+        description:   'Perfecta para parejas o viajeros, cómoda y silenciosa con decoración elegante y minimalista.',
+        descriptionEn: 'Perfect for couples or travelers, comfortable and quiet with an elegant, minimalist style.',
+        price: 80, capacity: 2,
+        amenities: ['Wi-Fi', 'Escritorio', 'Silla', 'Ropero', 'Baño Moderno'],
         image: hab5_bed, images: [hab5_bed],
     },
     {
@@ -76,17 +78,17 @@ export const rooms = [
         description:   'Espaciosa habitación equipada con tres camas individuales, perfecta para grupos o familias.',
         descriptionEn: 'Spacious room equipped with three single beds, perfect for groups or families.',
         price: 120, capacity: 3,
-        amenities: ['Wi-Fi', 'TV Cable', 'Ducha'],
-        image: hab6_bed, images: [hab6_bed, hab6_beds],
+        amenities: ['Wi-Fi', 'TV Cable', 'Baño Amplio', 'Mesa', 'Silla'],
+        image: hab6_main, images: [hab6_main, hab6_bed, hab6_beds, hab6_bath],
     },
     {
         id: 7,
         name:          'Habitación Matrimonial',
         nameEn:        'Double Room',
-        description:   'Habitación con cama matrimonial, TV plana y un ambiente muy acogedor ideal para parejas.',
-        descriptionEn: 'Room with a double bed, flat-screen TV, and a very cozy atmosphere ideal for couples.',
+        description:   'Habitación con cama matrimonial, TV por cable y un ambiente muy acogedor ideal para parejas.',
+        descriptionEn: 'Room with a double bed, cable TV, and a very cozy atmosphere ideal for couples.',
         price: 80, capacity: 2,
-        amenities: ['Wi-Fi', 'TV Plana', 'Ambiente Acogedor'],
+        amenities: ['Wi-Fi', 'TV Cable', 'Sillón', 'Mesa', 'Ropero', 'Ambiente Acogedor'],
         image: hab7_bed, images: [hab7_bed],
     },
     /*
@@ -105,20 +107,20 @@ export const rooms = [
         id: 9,
         name:          'Habitación Matrimonial Confort',
         nameEn:        'Comfort Double Room',
-        description:   'Confortable habitación de techos altos con vigas de madera, amplia cama matrimonial, TV plana y baño privado.',
-        descriptionEn: 'Comfortable room with high ceilings and exposed wooden beams, large double bed, flat-screen TV, and private bathroom.',
+        description:   'Confortable habitación de techos altos con vigas de madera, amplia cama matrimonial, Smart TV y baño privado.',
+        descriptionEn: 'Comfortable room with high ceilings and exposed wooden beams, large double bed, Smart TV, and private bathroom.',
         price: 80, capacity: 2,
-        amenities: ['Wi-Fi', 'Almohadas Pluma', 'Smart TV'],
+        amenities: ['Wi-Fi', 'Smart TV', 'Ropero', 'Baño Moderno'],
         image: hab9_bed, images: [hab9_bed],
     },
     {
         id: 10,
         name:          'Habitación Doble Superior',
         nameEn:        'Superior Double Room',
-        description:   'Habitación amplia con 1 cama matrimonial y 1 cama de plaza y media, detalles florales y baño propio moderno con acabados de primera.',
-        descriptionEn: 'Spacious room with 1 double bed and 1 single bed, floral details, and a modern private bathroom with premium finishes.',
+        description:   'Habitación amplia con 1 cama matrimonial y 1 cama de plaza y media, detalles minimalistas y baño propio moderno con acabados de primera.',
+        descriptionEn: 'Spacious room with 1 double bed and 1 single bed, minimalist details, and a modern private bathroom with premium finishes.',
         price: 140, capacity: 3,
-        amenities: ['Wi-Fi', 'Baño Propio', 'TV Plana'],
+        amenities: ['Wi-Fi', 'Baño Propio Moderno', 'TV Plana'],
         image: hab10_main, images: [hab10_main, hab10_beds, hab10_bath],
     },
 ];
