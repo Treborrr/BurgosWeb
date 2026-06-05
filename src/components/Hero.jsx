@@ -68,7 +68,7 @@ export default function Hero() {
                     style={{ cursor: 'pointer', userSelect: 'none' }}
                     onClick={(e) => { e.stopPropagation(); setTitleGold(prev => !prev); }}
                 >
-                    <span className="text-gradient-gold">Casa Hospedaje</span>
+                    <span className={titleGold ? 'text-gradient-gold' : ''}>Casa Hospedaje</span>
                     <br />
                     <span className={titleGold ? 'text-gradient-gold' : ''}>
                         Burgos
