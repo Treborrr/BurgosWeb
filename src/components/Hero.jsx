@@ -1,31 +1,58 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import bgImage1 from '../assets/images/city/FortalezaKuelap.webp';
 import bgImage2 from '../assets/images/city/Karajia.webp';
 import bgImage3 from '../assets/images/city/CatarataGocta.webp';
 import bgImage4 from '../assets/images/city/plaza-de-armas-chachapoyas.webp';
+import bgImage5 from '../assets/images/city/VirgenBurgos.webp';
 import { useLang } from '../context/LanguageContext';
 
-const heroImages = [bgImage1, bgImage2, bgImage3, bgImage4];
+const heroImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
+
+// Returns a random index different from the current one
+const getRandomIndex = (current) => {
+    let next;
+    do { next = Math.floor(Math.random() * heroImages.length); }
+    while (next === current);
+    return next;
+};
 
 export default function Hero() {
     const { t } = useLang();
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [titleGold, setTitleGold] = useState(false);
+    const timerRef = useRef(null);
+
+    const changeImage = useCallback((currentIdx) => {
+        setCurrentIndex(prev => getRandomIndex(prev));
+    }, []);
+
+    const resetTimer = useCallback(() => {
+        if (timerRef.current) clearInterval(timerRef.current);
+        timerRef.current = setInterval(() => {
+            setCurrentIndex(prev => getRandomIndex(prev));
+        }, 45000);
+    }, []);
+
+    // Start timer on mount, clear on unmount
+    useEffect(() => {
+        resetTimer();
+        return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    }, [resetTimer]);
 
     const handleHeroClick = (e) => {
-        // Prevent changing image when clicking on buttons or links
         if (e.target.closest('a') || e.target.closest('button')) return;
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+        setCurrentIndex(prev => getRandomIndex(prev));
+        resetTimer(); // Reset the 45s timer on manual click
     };
 
     return (
-        <section 
-            id="inicio" 
-            className="hero" 
-            style={{ 
-                backgroundImage: `url(${heroImages[currentImageIndex]})`,
+        <section
+            id="inicio"
+            className="hero"
+            style={{
+                backgroundImage: `url(${heroImages[currentIndex]})`,
                 cursor: 'pointer',
-                transition: 'background-image 0.8s ease-in-out'
             }}
             onClick={handleHeroClick}
         >
@@ -36,8 +63,16 @@ export default function Hero() {
                     {t.hero.eyebrow}
                 </span>
 
-                <h1 className="animate-fade-in delay-1">
-                    Casa Hospedaje<br />Burgos
+                <h1
+                    className="animate-fade-in delay-1"
+                    style={{ cursor: 'pointer', userSelect: 'none' }}
+                    onClick={(e) => { e.stopPropagation(); setTitleGold(prev => !prev); }}
+                >
+                    <span className="text-gradient-gold">Casa Hospedaje</span>
+                    <br />
+                    <span className={titleGold ? 'text-gradient-gold' : ''}>
+                        Burgos
+                    </span>
                 </h1>
 
                 <div className="hero-divider animate-fade-in delay-2" />

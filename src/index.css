@@ -342,6 +342,7 @@ nav {
   background-attachment: fixed;
   color: white;
   text-align: center;
+  transition: background-image 1s ease-in-out;
 }
 
 @media (max-width: 768px) {
