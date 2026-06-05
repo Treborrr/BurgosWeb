@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import bgImage1 from '../assets/images/city/FortalezaKuelap.webp';
 import bgImage2 from '../assets/images/city/Karajia.webp';
@@ -8,42 +8,44 @@ import bgImage5 from '../assets/images/city/VirgenBurgos.webp';
 import { useLang } from '../context/LanguageContext';
 
 const heroImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
-
-// Returns a random index different from the current one
-const getRandomIndex = (current) => {
-    let next;
-    do { next = Math.floor(Math.random() * heroImages.length); }
-    while (next === current);
-    return next;
-};
+const KARAJIA_INDEX = 1; // Index of bgImage2 in heroImages array
 
 export default function Hero() {
     const { t } = useLang();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [titleGold, setTitleGold] = useState(false);
-    const timerRef = useRef(null);
 
-    const changeImage = useCallback((currentIdx) => {
-        setCurrentIndex(prev => getRandomIndex(prev));
-    }, []);
-
-    const resetTimer = useCallback(() => {
-        if (timerRef.current) clearInterval(timerRef.current);
-        timerRef.current = setInterval(() => {
-            setCurrentIndex(prev => getRandomIndex(prev));
-        }, 45000);
-    }, []);
-
-    // Start timer on mount, clear on unmount
+    // Auto-transition logic based on current image
     useEffect(() => {
-        resetTimer();
-        return () => { if (timerRef.current) clearInterval(timerRef.current); };
-    }, [resetTimer]);
+        const isKarajia = currentIndex === KARAJIA_INDEX;
+        const duration = isKarajia ? 5 * 60 * 1000 : 45000; // 5 minutes for Karajia, 45 seconds for others
+
+        const timer = setInterval(() => {
+            if (isKarajia) {
+                // Karajia is active, next is a random non-Karajia image
+                const others = [0, 2, 3, 4];
+                const randomOther = others[Math.floor(Math.random() * others.length)];
+                setCurrentIndex(randomOther);
+            } else {
+                // Other image is active, next is Karajia
+                setCurrentIndex(KARAJIA_INDEX);
+            }
+        }, duration);
+
+        return () => clearInterval(timer);
+    }, [currentIndex]);
 
     const handleHeroClick = (e) => {
         if (e.target.closest('a') || e.target.closest('button')) return;
-        setCurrentIndex(prev => getRandomIndex(prev));
-        resetTimer(); // Reset the 45s timer on manual click
+        
+        // Manual skip follows the same alternating logic
+        if (currentIndex === KARAJIA_INDEX) {
+            const others = [0, 2, 3, 4];
+            const randomOther = others[Math.floor(Math.random() * others.length)];
+            setCurrentIndex(randomOther);
+        } else {
+            setCurrentIndex(KARAJIA_INDEX);
+        }
     };
 
     return (
