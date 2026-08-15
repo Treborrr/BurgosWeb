@@ -1,5 +1,5 @@
 import { Star } from 'lucide-react';
-import { useLang } from '../context/LanguageContext';
+import { useLang } from '../context/useLang';
 
 export default function Reviews() {
     const { t } = useLang();

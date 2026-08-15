@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight, Check, Users, ZoomIn } from 'lucide-react';
-import { useLang } from '../context/LanguageContext';
+import { useLang } from '../context/useLang';
 
 export default function RoomModal({ room, inCart, onClose, onAddToCart }) {
     const { lang, t } = useLang();
@@ -12,6 +12,9 @@ export default function RoomModal({ room, inCart, onClose, onAddToCart }) {
     const images = room.images?.length ? room.images : [];
     const hasMultiple = images.length > 1;
 
+    const prev = useCallback(() => setImgIndex(i => (i - 1 + images.length) % images.length), [images.length]);
+    const next = useCallback(() => setImgIndex(i => (i + 1) % images.length), [images.length]);
+
     // Cerrar con Escape (lightbox primero, luego modal)
     useEffect(() => {
         const onKey = (e) => {
@@ -21,16 +24,13 @@ export default function RoomModal({ room, inCart, onClose, onAddToCart }) {
         };
         window.addEventListener('keydown', onKey);
         return () => window.removeEventListener('keydown', onKey);
-    }, [lightbox, onClose, imgIndex]);
+    }, [lightbox, onClose, next, prev]);
 
     // Bloquear scroll del body
     useEffect(() => {
         document.body.style.overflow = 'hidden';
         return () => { document.body.style.overflow = ''; };
     }, []);
-
-    const prev = () => setImgIndex(i => (i - 1 + images.length) % images.length);
-    const next = () => setImgIndex(i => (i + 1) % images.length);
 
     // Swipe táctil para la galería
     const touchStartX = useRef(null);

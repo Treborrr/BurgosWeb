@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import logo from '../assets/images/logo/LogoNoFondo.webp';
-import { useLang } from '../context/LanguageContext';
+import { useLang } from '../context/useLang';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {

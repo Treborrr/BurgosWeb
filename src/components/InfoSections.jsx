@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, MapPin, Phone } from 'lucide-react';
-import { useLang } from '../context/LanguageContext';
+import { useLang } from '../context/useLang';
 import gocta from '../assets/images/city/CatarataGocta.webp';
 import kuelap from '../assets/images/city/Kuelap.webp';
 import karajia from '../assets/images/city/Karajia.webp';

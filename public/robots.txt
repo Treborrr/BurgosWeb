@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hospedajeburgos.railway.app/sitemap.xml
+Sitemap: https://hospedajeburgos.com/sitemap.xml

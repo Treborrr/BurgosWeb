@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { rooms } from '../data/rooms';
-import { useLang } from '../context/LanguageContext';
+import { useLang } from '../context/useLang';
 import RoomModal from './RoomModal';
 import { ShoppingCart, User, Calendar, Check, X } from 'lucide-react';
 

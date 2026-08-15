@@ -5,7 +5,7 @@ import bgImage2 from '../assets/images/city/Karajia.webp';
 import bgImage3 from '../assets/images/city/CatarataGocta.webp';
 import bgImage4 from '../assets/images/city/plaza-de-armas-chachapoyas.webp';
 import bgImage5 from '../assets/images/city/VirgenBurgos.webp';
-import { useLang } from '../context/LanguageContext';
+import { useLang } from '../context/useLang';
 
 const heroImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
 const KARAJIA_INDEX = 1; // Index of bgImage2 in heroImages array

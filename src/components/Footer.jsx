@@ -1,6 +1,6 @@
 import logo from '../assets/images/logo/LogoNoFondo.webp';
 import { Instagram, Facebook, Phone, MapPin } from 'lucide-react';
-import { useLang } from '../context/LanguageContext';
+import { useLang } from '../context/useLang';
 
 const TikTokIcon = () => (
     <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-label="TikTok">
