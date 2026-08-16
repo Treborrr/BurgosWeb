@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "burgosweb",
+  "compatibility_date": "2026-08-16",
+  // Sitio 100% estático (ssr:false + prerender), sin Worker de backend:
+  // esto le dice a Cloudflare que sirva dist/client como assets estáticos
+  // y NO intente escanear/generar un template de React Router con SSR.
+  "assets": {
+    "directory": "./dist/client"
+  }
+}
