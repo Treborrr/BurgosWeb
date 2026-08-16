@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
-import bgImage1 from '../assets/images/city/FortalezaKuelap.webp';
+import bgImage1 from '../assets/images/city/FortalezaKuelapBest.webp';
 import bgImage2 from '../assets/images/city/Karajia.webp';
 import bgImage3 from '../assets/images/city/CatarataGocta.webp';
 import bgImage4 from '../assets/images/city/plaza-de-armas-chachapoyas.webp';
-import bgImage5 from '../assets/images/city/VirgenBurgos.webp';
+import bgImage5 from '../assets/images/city/VirgenAsuntaBurgos.webp';
+import bgImage6 from '../assets/images/city/VirgenAsuntaFuegosArtificiales.webp';
 import { useLang } from '../context/useLang';
 
-const heroImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5];
+const heroImages = [bgImage1, bgImage2, bgImage3, bgImage4, bgImage5, bgImage6];
 const KARAJIA_INDEX = 1; // Index of bgImage2 in heroImages array
+const OTHER_INDICES = heroImages.map((_, i) => i).filter((i) => i !== KARAJIA_INDEX);
 
 export default function Hero() {
     const { t } = useLang();
@@ -23,8 +25,7 @@ export default function Hero() {
         const timer = setInterval(() => {
             if (isKarajia) {
                 // Karajia is active, next is a random non-Karajia image
-                const others = [0, 2, 3, 4];
-                const randomOther = others[Math.floor(Math.random() * others.length)];
+                const randomOther = OTHER_INDICES[Math.floor(Math.random() * OTHER_INDICES.length)];
                 setCurrentIndex(randomOther);
             } else {
                 // Other image is active, next is Karajia
@@ -40,8 +41,7 @@ export default function Hero() {
         
         // Manual skip follows the same alternating logic
         if (currentIndex === KARAJIA_INDEX) {
-            const others = [0, 2, 3, 4];
-            const randomOther = others[Math.floor(Math.random() * others.length)];
+            const randomOther = OTHER_INDICES[Math.floor(Math.random() * OTHER_INDICES.length)];
             setCurrentIndex(randomOther);
         } else {
             setCurrentIndex(KARAJIA_INDEX);
