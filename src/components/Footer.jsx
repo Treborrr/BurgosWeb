@@ -1,5 +1,5 @@
 import logo from '../assets/images/logo/LogoNoFondo.webp';
-import { Instagram, Facebook, Phone, MapPin } from 'lucide-react';
+import { Facebook, Phone, MapPin } from 'lucide-react';
 import { useLang } from '../context/useLang';
 
 const TikTokIcon = () => (
@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="container">
                 <div className="footer-grid">
                     <div className="footer-brand">
-                        <img src={logo} alt="Logo Burgos" className="footer-logo" />
+                        <img src={logo} alt="Logo Burgos" className="footer-logo" loading="lazy" decoding="async" />
                         <p>{t.footer.brand}</p>
                         <div className="social-icons">
                             <a href="https://www.facebook.com/plazuelaburgos" target="_blank" rel="noopener noreferrer"><Facebook size={17} /></a>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import logo from '../assets/images/logo/LogoNoFondo.webp';
 import { useLang } from '../context/useLang';
 import { Menu, X } from 'lucide-react';
@@ -6,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const { lang, toggle, t } = useLang();
+    const { lang, t } = useLang();
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 60);
@@ -57,11 +58,27 @@ export default function Navbar() {
                     </div>
 
                     <div className="nav-actions">
-                        <button className="lang-toggle" onClick={toggle} aria-label="Cambiar idioma">
-                            <span className={lang === 'es' ? 'lang-active' : ''}>ES</span>
+                        <div className="lang-toggle" role="group" aria-label="Idioma / Language">
+                            <Link
+                                to="/"
+                                hrefLang="es"
+                                aria-current={lang === 'es' ? 'page' : undefined}
+                                className={lang === 'es' ? 'lang-active' : ''}
+                                style={{ textDecoration: 'none', color: 'inherit' }}
+                            >
+                                ES
+                            </Link>
                             <span className="lang-sep">|</span>
-                            <span className={lang === 'en' ? 'lang-active' : ''}>EN</span>
-                        </button>
+                            <Link
+                                to="/en"
+                                hrefLang="en"
+                                aria-current={lang === 'en' ? 'page' : undefined}
+                                className={lang === 'en' ? 'lang-active' : ''}
+                                style={{ textDecoration: 'none', color: 'inherit' }}
+                            >
+                                EN
+                            </Link>
+                        </div>
 
                         <a
                             href="#habitaciones"

@@ -26,4 +26,12 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    // Convención de React Router: los archivos de ruta exportan `meta`/`links`
+    // junto al componente por diseño, así que esta regla no aplica aquí.
+    files: ['src/root.jsx', 'src/routes/**/*.jsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ])

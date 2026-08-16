@@ -26,7 +26,7 @@ export default function InfoSections() {
                     <div className="attraction-grid">
                         {t.attractions.items.map((a, i) => (
                             <div key={a.name} className="attraction-card">
-                                <img src={imgs[i]} alt={a.name} />
+                                <img src={imgs[i]} alt={a.name} loading="lazy" decoding="async" />
                                 <div className="attraction-info">
                                     <h3>{a.name}</h3>
                                     <p>{a.desc}</p>
