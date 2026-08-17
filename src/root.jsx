@@ -7,12 +7,17 @@ import {
   ScrollRestoration,
 } from 'react-router';
 import './index.css';
+import heroLCP from './assets/images/city/FortalezaKuelapBest.webp';
+
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
 export function links() {
   return [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+    // Primera imagen del hero: es el LCP de la página en toda visita inicial
+    { rel: 'preload', as: 'image', href: heroLCP, type: 'image/webp', fetchPriority: 'high' },
   ];
 }
 
@@ -33,12 +38,12 @@ export function Layout({ children }) {
           httpEquiv="Content-Security-Policy"
           content="
             default-src 'self';
-            script-src 'self' 'unsafe-inline';
+            script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
             font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
             img-src 'self' data: blob: https:;
             frame-src https://www.google.com;
-            connect-src 'self';
+            connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com;
             object-src 'none';
             base-uri 'self';
             form-action 'self';
@@ -48,6 +53,18 @@ export function Layout({ children }) {
 
         <Meta />
         <Links />
+
+        {/* Google Analytics (GA4) — se activa solo si VITE_GA_MEASUREMENT_ID está definida en el build */}
+        {GA_MEASUREMENT_ID && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body>
         {children}

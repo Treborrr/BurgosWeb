@@ -75,11 +75,17 @@ export default function InfoSections() {
                         <h2 className="text-gradient-gold">{t.faq.title}</h2>
                         <div className="faq-list">
                             {t.faq.items.map((faq, i) => (
-                                <div key={i} className={`faq-item ${openFaq === i ? 'open' : ''}`} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
-                                    <div className="faq-question">
+                                <div key={i} className={`faq-item ${openFaq === i ? 'open' : ''}`}>
+                                    <button
+                                        type="button"
+                                        className="faq-question"
+                                        aria-expanded={openFaq === i}
+                                        aria-controls={`faq-answer-${i}`}
+                                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                                    >
                                         {faq.q} <ChevronDown size={18} className="icon" />
-                                    </div>
-                                    <div className="faq-answer">{faq.a}</div>
+                                    </button>
+                                    <div className="faq-answer" id={`faq-answer-${i}`}>{faq.a}</div>
                                 </div>
                             ))}
                         </div>

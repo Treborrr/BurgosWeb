@@ -24,6 +24,7 @@ export const translations = {
             select: 'Seleccionar',
             selected: '✓ Seleccionada',
             cart_title: 'Tu Reserva',
+            nights_label: 'Noches',
             total: 'Total Estimado',
             confirm: 'Confirmar por WhatsApp',
             per_night: '/noche',
@@ -31,8 +32,8 @@ export const translations = {
             show_less: 'Ver Menos',
             alert_dates: 'Por favor selecciona las fechas de tu estadía.',
             alert_rooms: 'Por favor añade al menos una habitación.',
-            whatsapp: (ci, co, g, r, total) =>
-                `¡Hola! Me gustaría reservar en Casa Hospedaje Burgos.\n\n• Fechas: ${ci} al ${co}\n• Huéspedes: ${g}\n• Habitaciones: ${r}\n• Total estimado: S/${total}\n\n¿Tienen disponibilidad?`,
+            whatsapp: (ci, co, nights, g, r, total) =>
+                `¡Hola! Me gustaría reservar en Casa Hospedaje Burgos.\n\n• Fechas: ${ci} al ${co}\n• Noches: ${nights}\n• Huéspedes: ${g}\n• Habitaciones: ${r}\n• Total estimado: S/${total}\n\n¿Tienen disponibilidad?`,
         },
         attractions: {
             eyebrow: 'Turismo',
@@ -102,6 +103,7 @@ export const translations = {
             select: 'Select Room',
             selected: '✓ Selected',
             cart_title: 'Your Booking',
+            nights_label: 'Nights',
             total: 'Estimated Total',
             confirm: 'Confirm via WhatsApp',
             per_night: '/night',
@@ -109,8 +111,8 @@ export const translations = {
             show_less: 'Show Less',
             alert_dates: 'Please select your stay dates.',
             alert_rooms: 'Please add at least one room.',
-            whatsapp: (ci, co, g, r, total) =>
-                `Hello! I'd like to book at Casa Hospedaje Burgos.\n\n• Dates: ${ci} to ${co}\n• Guests: ${g}\n• Rooms: ${r}\n• Estimated total: S/${total}\n\nDo you have availability?`,
+            whatsapp: (ci, co, nights, g, r, total) =>
+                `Hello! I'd like to book at Casa Hospedaje Burgos.\n\n• Dates: ${ci} to ${co}\n• Nights: ${nights}\n• Guests: ${g}\n• Rooms: ${r}\n• Estimated total: S/${total}\n\nDo you have availability?`,
         },
         attractions: {
             eyebrow: 'Tourism',

@@ -1009,6 +1009,13 @@ input[type="number"] {
   border-color: var(--color-gold-border);
 }
 
+.room-card:focus-visible,
+.faq-question:focus-visible,
+.card-view-more:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
 .room-image {
   height: 260px;
   background-size: cover;
@@ -1262,6 +1269,15 @@ input[type="number"] {
   border-top: 1px solid var(--color-border);
 }
 
+.cart-nights {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
 .cart-total {
   display: flex;
   justify-content: space-between;
@@ -1410,7 +1426,6 @@ input[type="number"] {
 
 .faq-item {
   border-bottom: 1px solid var(--color-border-soft);
-  cursor: pointer;
 }
 
 .faq-item:first-child {
@@ -1422,12 +1437,18 @@ input[type="number"] {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
   font-weight: 600;
   color: var(--color-text);
   font-size: 0.95rem;
   padding: 1.5rem 0;
+  text-align: left;
   user-select: none;
   line-height: 1.5;
+  cursor: pointer;
 }
 
 .faq-question .icon {

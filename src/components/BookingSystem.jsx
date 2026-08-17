@@ -18,14 +18,20 @@ export default function BookingSystem() {
 
     const addToCart = (room) => { if (!cart.find(i => i.id === room.id)) setCart([...cart, room]); };
     const removeFromCart = (id) => setCart(cart.filter(i => i.id !== id));
-    const total = () => cart.reduce((s, r) => s + r.price, 0);
+
+    const nights = (() => {
+        if (!checkin || !checkout) return 0;
+        const diff = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
+        return diff > 0 ? diff : 0;
+    })();
+    const total = () => cart.reduce((s, r) => s + r.price, 0) * Math.max(nights, 1);
 
     const sendWhatsApp = () => {
         if (!checkin || !checkout) { alert(t.booking.alert_dates); return; }
         if (!cart.length)           { alert(t.booking.alert_rooms); return; }
         const safeGuests  = Math.max(1, Math.min(39, parseInt(guests, 10) || 1));
         const roomNames   = cart.map(r => r.name).join(', ');
-        const plainMsg    = t.booking.whatsapp(checkin, checkout, safeGuests, roomNames, total());
+        const plainMsg    = t.booking.whatsapp(checkin, checkout, nights, safeGuests, roomNames, total());
         const encoded     = encodeURIComponent(plainMsg);
         window.open(`https://wa.me/51941944562?text=${encoded}`, '_blank', 'noopener,noreferrer');
     };
@@ -80,7 +86,19 @@ export default function BookingSystem() {
                         const name = lang === 'en' ? room.nameEn : room.name;
                         const desc = lang === 'en' ? room.descriptionEn : room.description;
                         return (
-                            <div key={room.id} className="room-card" onClick={() => setSelectedRoom(room)} style={{ cursor: 'pointer' }}>
+                            <div
+                                key={room.id}
+                                className="room-card"
+                                role="button"
+                                tabIndex={0}
+                                aria-label={lang === 'en' ? `View details of ${name}` : `Ver detalles de ${name}`}
+                                onClick={() => setSelectedRoom(room)}
+                                onKeyDown={(e) => {
+                                    if (e.target.closest('button')) return;
+                                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedRoom(room); }
+                                }}
+                                style={{ cursor: 'pointer' }}
+                            >
                                 <div
                                     className="room-image"
                                     style={{
@@ -116,7 +134,8 @@ export default function BookingSystem() {
                     })}
 
                     {/* Tarjeta de "Ver Más" / "Ver Menos" */}
-                    <div
+                    <button
+                        type="button"
                         className="room-card card-view-more"
                         onClick={() => setShowAllRooms(!showAllRooms)}
                         style={{
@@ -126,6 +145,9 @@ export default function BookingSystem() {
                             justifyContent: 'center',
                             cursor: 'pointer',
                             minHeight: '450px',
+                            width: '100%',
+                            font: 'inherit',
+                            color: 'inherit',
                             background: showAllRooms ? 'var(--color-surface-3)' : 'var(--color-surface)',
                             border: '2px dashed var(--color-gold-border)'
                         }}
@@ -155,7 +177,7 @@ export default function BookingSystem() {
                                 }
                             </p>
                         </div>
-                    </div>
+                    </button>
                 </div>
 
                 {/* Modal de habitación */}
@@ -197,6 +219,12 @@ export default function BookingSystem() {
                             ))}
                         </div>
                         <div className="cart-footer">
+                            {nights > 0 && (
+                                <div className="cart-nights">
+                                    <span>{t.booking.nights_label}</span>
+                                    <span>{nights}</span>
+                                </div>
+                            )}
                             <div className="cart-total">
                                 <span>{t.booking.total}</span>
                                 <span>S/{total()}</span>
