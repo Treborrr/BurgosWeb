@@ -25,11 +25,13 @@ export default function BookingSystem() {
         return diff > 0 ? diff : 0;
     })();
     const total = () => cart.reduce((s, r) => s + r.price, 0) * Math.max(nights, 1);
+    const cartCapacity = cart.reduce((s, r) => s + r.capacity, 0);
 
     const sendWhatsApp = () => {
         if (!checkin || !checkout) { alert(t.booking.alert_dates); return; }
         if (!cart.length)           { alert(t.booking.alert_rooms); return; }
         const safeGuests  = Math.max(1, Math.min(39, parseInt(guests, 10) || 1));
+        if (safeGuests > cartCapacity) { alert(t.booking.alert_capacity(cartCapacity, safeGuests)); return; }
         const roomNames   = cart.map(r => r.name).join(', ');
         const plainMsg    = t.booking.whatsapp(checkin, checkout, nights, safeGuests, roomNames, total());
         const encoded     = encodeURIComponent(plainMsg);
@@ -101,11 +103,17 @@ export default function BookingSystem() {
                             >
                                 <div
                                     className="room-image"
-                                    style={{
-                                        backgroundImage: room.image ? `url(${room.image})` : 'none',
-                                        backgroundColor: 'var(--color-surface-3)',
-                                    }}
+                                    style={{ backgroundColor: 'var(--color-surface-3)' }}
                                 >
+                                    {room.image && (
+                                        <img
+                                            src={room.image}
+                                            alt={name}
+                                            className="room-image-img"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    )}
                                     {!room.image && (
                                         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: '0.5rem', color: 'var(--color-text-faint)' }}>
                                             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>

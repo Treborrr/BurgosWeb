@@ -19,6 +19,10 @@ export default function Hero() {
 
     // Auto-transition logic based on current image
     useEffect(() => {
+        // Respeta prefers-reduced-motion: no rota automáticamente, pero el usuario
+        // puede seguir cambiando la foto manualmente con un click.
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const isKarajia = currentIndex === KARAJIA_INDEX;
         const duration = isKarajia ? 5 * 60 * 1000 : 45000; // 5 minutes for Karajia, 45 seconds for others
 

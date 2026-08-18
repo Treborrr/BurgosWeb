@@ -1,6 +1,13 @@
 import { translations } from './data/translations';
+import { rooms } from './data/rooms';
 
 export const SITE_URL = 'https://hospedajeburgos.com';
+
+// Rango de precios real, derivado de data/rooms.js, para que el schema.org
+// (priceRange) nunca quede desincronizado de los precios que ve el usuario.
+const roomPrices = rooms.map((r) => r.price);
+const MIN_ROOM_PRICE = Math.min(...roomPrices);
+const MAX_ROOM_PRICE = Math.max(...roomPrices);
 
 const paths = { es: '/', en: '/en' };
 
@@ -81,9 +88,8 @@ export function buildStructuredData(lang) {
         },
         url: `${SITE_URL}${paths[lang]}`,
         telephone: '+51941944562',
-        priceRange: 'S/120 - S/280',
+        priceRange: `S/${MIN_ROOM_PRICE} - S/${MAX_ROOM_PRICE}`,
         image: `${SITE_URL}/images/og-image.webp`,
-        starRating: { '@type': 'Rating', ratingValue: '5' },
         sameAs: [
             'https://www.facebook.com/plazuelaburgos',
             'https://www.tiktok.com/@hospedaje.burgos',

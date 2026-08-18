@@ -32,6 +32,8 @@ export const translations = {
             show_less: 'Ver Menos',
             alert_dates: 'Por favor selecciona las fechas de tu estadía.',
             alert_rooms: 'Por favor añade al menos una habitación.',
+            alert_capacity: (capacity, guests) =>
+                `La capacidad de las habitaciones seleccionadas es para ${capacity} persona${capacity === 1 ? '' : 's'}, pero indicaste ${guests}. Añade otra habitación o ajusta el número de huéspedes.`,
             whatsapp: (ci, co, nights, g, r, total) =>
                 `¡Hola! Me gustaría reservar en Casa Hospedaje Burgos.\n\n• Fechas: ${ci} al ${co}\n• Noches: ${nights}\n• Huéspedes: ${g}\n• Habitaciones: ${r}\n• Total estimado: S/${total}\n\n¿Tienen disponibilidad?`,
         },
@@ -111,6 +113,8 @@ export const translations = {
             show_less: 'Show Less',
             alert_dates: 'Please select your stay dates.',
             alert_rooms: 'Please add at least one room.',
+            alert_capacity: (capacity, guests) =>
+                `The selected rooms have capacity for ${capacity} guest${capacity === 1 ? '' : 's'}, but you indicated ${guests}. Please add another room or adjust the number of guests.`,
             whatsapp: (ci, co, nights, g, r, total) =>
                 `Hello! I'd like to book at Casa Hospedaje Burgos.\n\n• Dates: ${ci} to ${co}\n• Nights: ${nights}\n• Guests: ${g}\n• Rooms: ${r}\n• Estimated total: S/${total}\n\nDo you have availability?`,
         },
@@ -150,7 +154,7 @@ export const translations = {
             ]
         },
         footer: {
-            brand: 'Casa Hospedaje con colonial charm in the heart of Chachapoyas, Amazonas.',
+            brand: 'Casa Hospedaje with colonial charm in the heart of Chachapoyas, Amazonas.',
             nav_title: 'Navigation',
             contact_title: 'Contact',
             rights: 'All rights reserved.',

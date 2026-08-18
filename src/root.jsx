@@ -5,8 +5,10 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from 'react-router';
 import './index.css';
+import './analytics';
 import heroLCP from './assets/images/city/FortalezaKuelapBest.webp';
 
 const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
@@ -22,8 +24,13 @@ export function links() {
 }
 
 export function Layout({ children }) {
+  // Determina el idioma a partir de la ruta actual (/en → inglés, resto → español)
+  // para que <html lang> coincida siempre con el contenido visible de la página.
+  const location = useLocation();
+  const lang = location.pathname.startsWith('/en') ? 'en' : 'es';
+
   return (
-    <html lang="es">
+    <html lang={lang}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,7 +45,7 @@ export function Layout({ children }) {
           httpEquiv="Content-Security-Policy"
           content="
             default-src 'self';
-            script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+            script-src 'self' https://www.googletagmanager.com;
             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
             font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
             img-src 'self' data: blob: https:;
@@ -54,16 +61,13 @@ export function Layout({ children }) {
         <Meta />
         <Links />
 
-        {/* Google Analytics (GA4) — se activa solo si VITE_GA_MEASUREMENT_ID está definida en el build */}
+        {/*
+          Google Analytics (GA4) — se activa solo si VITE_GA_MEASUREMENT_ID está definida en el build.
+          El init de dataLayer/gtag vive en './analytics' (bundle propio, servido desde 'self')
+          para no depender de script-src 'unsafe-inline' en el CSP.
+        */}
         {GA_MEASUREMENT_ID && (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
-              }}
-            />
-          </>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
         )}
       </head>
       <body>
